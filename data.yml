@@ -1,0 +1,6 @@
+path: ./data
+train: train/img
+val: val/img
+
+names:
+  0: license_plate
