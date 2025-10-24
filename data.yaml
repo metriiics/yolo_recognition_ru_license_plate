@@ -1,0 +1,13 @@
+train: ../data_license_plates_ru/train/images
+val: ../data_license_plates_ru/valid/images
+test: ../data_license_plates_ru/test/images
+
+nc: 1
+names: ['license-plate']
+
+roboflow:
+  workspace: science-ffxxt
+  project: russian-license-plates-detector-vcua6
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/science-ffxxt/russian-license-plates-detector-vcua6/dataset/1
