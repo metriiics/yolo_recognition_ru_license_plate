@@ -1,2 +1,4 @@
 /env
 /data_license_plates_ru
+__pycache__/
+Video.mp4
