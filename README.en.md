@@ -1,5 +1,8 @@
 # License Plate Recognition with YOLO
 
+**Project for the International Digital Olympiad "Volga-IT'2025" in the direction "Artificial Intelligence and Data Analysis"**  
+[Official Website](https://volga-it.org/)
+
 This project detects vehicles and reads license plates from video footage using **YOLOv8**, **SORT**, and **PaddleOCR**.
 
 
@@ -55,4 +58,4 @@ This project includes components from the [SORT Tracker](https://github.com/abew
 
 ## Documentation
 
-- [Explanatory Note](./пояснительная_записка.md)
+- [Explanatory Note](explanatory_note.md)
