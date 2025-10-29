@@ -35,8 +35,8 @@
 
 1. **Клонируйте репозиторий**
    ```bash
-   git clone https://github.com/metriiics/yolov8-fastapi.git
-   cd yolov8-fastapi
+   git clone https://github.com/metriiics/yolo_recognition_ru_license_plate.git
+   cd yolo_recognition_ru_license_plate
 
 2. **Создайте и активируйте виртуальное окружение**
     python -m venv venv
