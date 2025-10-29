@@ -4,17 +4,14 @@ import csv
 import numpy as np
 from paddleocr import PaddleOCR
 
-# === PaddleOCR инициализация ===
 ocr = PaddleOCR(lang='en', use_textline_orientation=True)
-
-# === Вспомогательные функции ===
 
 def clean_license_text(text: str) -> str:
     """Очищает текст от мусора и нормализует формат."""
     if not text:
         return ""
     text = text.upper()
-    text = re.sub(r'[^A-Z0-9]', '', text)  # только латиница и цифры
+    text = re.sub(r'[^A-Z0-9]', '', text) 
     return text.strip()
 
 
@@ -105,7 +102,7 @@ def read_license_plate(crop):
                         continue
                     if score > best_score:
                         best_text, best_score = text, score
-                        print(f"✅ [{name}] {text} ({score:.2f})")
+                        print(f"[{name}] {text} ({score:.2f})")
 
             except Exception as e:
                 print(f"[{name}] OCR error: {e}")
@@ -118,28 +115,26 @@ def read_license_plate(crop):
 
 
 def write_csv(results, output_path, fps=30):
-    """
-    Запись CSV в формате:
-    time,plate_num
-    """
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow(['time', 'plate_num'])
 
-        for frame_nmr in results.keys():
+        last_time = -999  # для фильтра по частоте вывода
+
+        for frame_nmr in sorted(results.keys()):
             for car_id in results[frame_nmr].keys():
                 plate_data = results[frame_nmr][car_id].get('license_plate', {})
                 text = clean_license_text(plate_data.get('text', ''))
 
-                # Только корректные номера
                 if not is_valid_plate(text):
                     continue
 
-                # Вычисляем время по номеру кадра
                 time_sec = frame_nmr / fps
-                time_str = format_time(time_sec)
+                if time_sec - last_time < 0.2:
+                    continue
+                last_time = time_sec
 
-                writer.writerow([time_str, text])
+                writer.writerow([format_time(time_sec), text])
 
 
 def get_car(license_plate, vehicle_track_ids):

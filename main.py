@@ -6,11 +6,11 @@ from sort.sort import Sort
 from util import get_car, write_csv
 import time
 
-VIDEO_PATH = "Video-1.mp4"
+VIDEO_PATH = "Video.mp4"
 OUTPUT_CSV = "output.csv"
 
-coco_model = YOLO("yolov8n.pt")              # Обнаружение машин
-license_plate_detector = YOLO("./models/best.pt")  # Обнаружение номеров
+coco_model = YOLO("yolov8n.pt")         
+license_plate_detector = YOLO("./models/best.pt") 
 
 mot_tracker = Sort()
 
@@ -31,7 +31,7 @@ while True:
     frame_nmr += 1
 
     if frame_nmr % 2 != 0:
-        continue  # пропускаем кадры для скорости
+        continue
 
     results[frame_nmr] = {}
 
@@ -42,12 +42,15 @@ while True:
         x1, y1, x2, y2, score, class_id = detection
         if int(class_id) in vehicles:
             detections_.append([x1, y1, x2, y2, score])
+    
+    print(f"Detected vehicles {len(detections_)}")
 
     # Трекинг машин
     track_ids = mot_tracker.update(np.asarray(detections_) if len(detections_) > 0 else np.empty((0, 5)))
 
     # Детектим номера
     license_plates = license_plate_detector(frame, verbose=False)[0]
+    print(f"Detected license plate - {len(license_plates.boxes.data)}")
 
     for license_plate in license_plates.boxes.data.tolist():
         x1, y1, x2, y2, score, class_id = license_plate
@@ -89,8 +92,8 @@ while True:
 
     if frame_nmr % 20 == 0:
         elapsed = time.time() - start_time
-        print(f"[{frame_nmr}] обработано кадров за {elapsed:.1f} сек.")
+        print(f"[{frame_nmr}] frame, time {elapsed:.1f} sec")
 
 cap.release()
 write_csv(results, OUTPUT_CSV)
-print(f"\n✅ Сохранено в {OUTPUT_CSV}")
+print(f"\nСохранено в {OUTPUT_CSV}")
