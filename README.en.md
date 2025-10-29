@@ -2,7 +2,6 @@
 
 This project detects vehicles and reads license plates from video footage using **YOLOv8**, **SORT**, and **PaddleOCR**.
 
----
 
 ## Description
 
@@ -11,19 +10,16 @@ This project detects vehicles and reads license plates from video footage using 
 - **Tracking** — SORT algorithm (Kalman filter based)
 - **Text recognition** — PaddleOCR (English)
 
----
 
 ## Dataset
 
 The model for license plate detection was trained on a dataset from [Roboflow Universe](https://universe.roboflow.com/science-ffxxt/russian-license-plates-detector-vcua6).
 
----
 
 ## Dependencies
 
 This project includes components from the [SORT Tracker](https://github.com/abewley/sort).
 
----
 
 ## Requirements
 
@@ -34,7 +30,6 @@ This project includes components from the [SORT Tracker](https://github.com/abew
 - numpy
 - filterpy
 
----
 
 ## Run step by step
 
@@ -44,17 +39,19 @@ This project includes components from the [SORT Tracker](https://github.com/abew
    cd yolo_recognition_ru_license_plate
 
 2. Create and activate a virtual environment
+    ```bash
     python -m venv venv
     venv\Scripts\activate
 
 3. Install dependencies
+    ```bash
     pip install --upgrade pip
     pip install -r requirements.txt
 
 4. Run the program
+    ```bash
     python main.py
 
----
 
 ## Documentation
 
