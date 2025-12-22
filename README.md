@@ -7,4 +7,6 @@
 
 ![Certificate](PF-Volga.jpg)
 
-![Open PDF](PF-Volga.pdf)
+<img src="PF-Volga.jpg" width="400" alt="Описание">
+
+[Open PDF](PF-Volga.pdf)
