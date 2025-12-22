@@ -5,4 +5,6 @@
 
 ---
 
-*(English version below / Русская версия ниже)*
+![Certificate](PF-Volga.jpg)
+
+[Open PDF](PF-Volga.pdf)
