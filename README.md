@@ -5,8 +5,6 @@
 
 ---
 
-![Certificate](PF-Volga.jpg)
-
-<img src="PF-Volga.jpg" width="400" alt="Описание">
+<img src="PF-Volga.jpg" width="600" alt="Certificate">
 
 [Open PDF](PF-Volga.pdf)
