@@ -6,9 +6,7 @@
 ---
 
 <p align="center">
-  <img src="PF-Volga.jpg" style="width: 50%; max-width: 600px; height: auto;" alt="Описание">
+  <img src="PF-Volga.jpg" style="width: 50%; max-width: 800px; height: auto;" alt="Certificate">
 </p>
-
-<img src="PF-Volga.jpg" width="600" alt="Certificate">
 
 [Open PDF](PF-Volga.pdf)
